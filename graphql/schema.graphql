@@ -13,7 +13,7 @@ type Game {
   updatedAt: DateTime!
 }
 
-input CourseCreateInput {
+input GameCreateInput {
   description: String
   title: String!
 }
