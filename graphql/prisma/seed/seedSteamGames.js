@@ -7,7 +7,7 @@ const prisma = new PrismaClient()
 const game_prefixes = ['id', 'info']
 
 async function loadGames() {
-    const allGames = steam_games['comet'].course
+    const allGames = steam_games['comet'].game
     const cetGames = allGames.filter (
       (game) => game_prefixes.includes(game.prefix._text)
     )
@@ -26,7 +26,7 @@ async function main() {
   const allGames = await loadGames()
   for (const crs of allGames) {
       try {
-          await prisma.course.create(crs)
+          await prisma.game.create(crs)
       } catch (error) {
           console.log(`Error creating game: ${error}`)
       }

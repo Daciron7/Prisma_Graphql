@@ -2,11 +2,11 @@ const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 
-const gameUserData = [
+const gamerData = [
   {
     name: 'Alice',
     email: 'alice@prisma.io',
-    info: {
+    game: {
       create: [
         {
           title: 'Company of Heroes',
@@ -19,7 +19,7 @@ const gameUserData = [
   {
     name: 'Nilu',
     email: 'nilu@prisma.io',
-    info: {
+    game: {
       create: [
         {
           title: 'Take On Helicopters',
@@ -32,7 +32,7 @@ const gameUserData = [
   {
     name: 'Buddy',
     email: 'buddy@prisma.io',
-    info: {
+    game: {
       create: [
         {
           title: 'PT Boats: South Gambit',
@@ -51,11 +51,11 @@ const gameUserData = [
 
 async function main() {
   console.log(`Start seeding ...`)
-  for (const i of Data) {
-    const gameUser = await prisma.gameUser.create({
+  for (const i of gamerData) {
+    const gameUser = await prisma.user.create({
       data: i,
     })
-    console.log(`Created game user with id: ${instructor.id}`)
+    console.log(`Created gameUser with id: ${gameUser.id}`)
   }
   console.log(`Seeding finished.`)
 }
